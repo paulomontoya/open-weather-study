@@ -1,0 +1,49 @@
+@keyframes shake {
+  25% {
+    transform: translate3d(-5px, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(0, 0, 0);
+  }
+  75% {
+    transform: translate3d(5px, 0, 0);
+  }
+}
+
+.SearchBox {
+  display: block;
+  margin: 0 auto;
+  width: 400px;
+
+  form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    label {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 15px;
+    }
+    input {
+      display: block;
+      outline: 0;
+      border: 1px solid #ccc;
+      padding: 5px;
+    }
+  }
+}
+
+.SearchBoxInputError {
+  border: 1px solid #e20000 !important;
+  animation: shake 0.2s 2;
+}
+
+.InputFeedback {
+  display: block;
+  font-size: 12px;
+  line-height: 12px;
+  height: 12px;
+  margin-top: 4px;
+}

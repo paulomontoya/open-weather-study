@@ -1,16 +1,22 @@
-import LoadingSpinner from "../components/LoadingSpinner";
 import css from "./index.scss";
-import { useObserver } from "mobx-react-lite";
-import React, { useContext } from "react";
-import { UserStoreContext } from "../stores";
-import { useTransition, animated } from "react-spring";
+import React from "react";
+import SearchBox from "../components/SearchBox";
+import { Router } from "../routes";
 
 const Index = () => {
-  const UserStore = useContext(UserStoreContext);
+  return (
+    <div className={css.IndexPage}>
+      <header className={css.Header}>
+        <h1>OpenWeather Project</h1>
+      </header>
 
-  return useObserver(() => {
-    return <div className={css.IndexPage} />;
-  });
+      <SearchBox submitCallback={handleSearchBox} />
+    </div>
+  );
 };
+
+function handleSearchBox(searchValue) {
+  Router.pushRoute(`/search?q=${searchValue}`);
+}
 
 export default Index;

@@ -3,3 +3,24 @@
 .IndexPage {
   display: block;
 }
+
+.Header {
+  display: block;
+  text-align: center;
+
+  h1 {
+    text-transform: uppercase;
+  }
+}
+
+.SearchBox {
+  display: block;
+}
+
+.WeatherBoxWrapper {
+  display: block;
+}
+
+.WeatherBox {
+  display: block;
+}
