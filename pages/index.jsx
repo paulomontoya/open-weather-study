@@ -7,6 +7,7 @@ import { get } from "lodash";
 import { useObserver } from "mobx-react-lite";
 import { WeatherStoreContext } from "../stores";
 import LoadingSpinner from "../components/LoadingSpinner";
+import ForecastError from "../components/ForecastError";
 import ForecastList from "../components/ForecastList";
 
 const Index = ({ searchTerms }) => {
@@ -30,18 +31,10 @@ const Index = ({ searchTerms }) => {
         {WeatherStore.isLoading ? (
           <LoadingSpinner />
         ) : WeatherStore.error ? (
-          <div className={css.ResultsError}>
-            {WeatherStore.error === 404 ? (
-              <p>City "{WeatherStore.searchTerms}" was not found.</p>
-            ) : (
-              <p>Server returned an error: {WeatherStore.error}.</p>
-            )}
-            Search engine is very flexible. How it works: To make it more
-            precise put the city's name, comma, 2-letter country code (ISO3166).
-            You will get all proper cities in chosen country. The order is
-            important - the first is city name then comma then country. Example
-            - London, GB or New York, US.
-          </div>
+          <ForecastError
+            error={WeatherStore.error}
+            searchTerms={WeatherStore.searchTerms}
+          />
         ) : (
           <ForecastList
             list={WeatherStore.list}
