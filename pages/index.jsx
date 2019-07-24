@@ -23,10 +23,7 @@ const Index = ({ searchTerms }) => {
       <div className={css.IndexPage}>
         <Header />
 
-        <SearchBox
-          submitCallback={handleSearchBox}
-          defaultValue={WeatherStore.searchTerms}
-        />
+        <SearchBox submitCallback={handleSearchBox} />
 
         {WeatherStore.isLoading ? (
           <LoadingSpinner />

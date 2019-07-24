@@ -3,12 +3,13 @@ import css from "./SearchBox.scss";
 import * as Yup from "yup";
 import { Formik } from "formik";
 
-const SearchBox = ({ submitCallback, defaultValue }) => (
+const SearchBox = ({ submitCallback }) => (
   <div className={css.SearchBox}>
     <Formik
-      initialValues={{ place: defaultValue || "" }}
+      initialValues={{ place: "" }}
       onSubmit={(values, { setSubmitting }) => {
         submitCallback(values.place);
+        values.place = "";
         setSubmitting(false);
       }}
       validationSchema={Yup.object().shape({
