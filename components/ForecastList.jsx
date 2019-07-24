@@ -4,11 +4,11 @@ import css from "./ForecastList.scss";
 const ForecastList = ({ list, currentCity }) => {
   return (
     list.length > 0 && (
-      <div className={css.ForecastList}>
+      <section className={css.ForecastList}>
         <h2>Forecast for {currentCity}: </h2>
         {list.map((item, index) => {
           return (
-            <div className={css.ForecastItem} key={`forecast_${index}`}>
+            <article className={css.ForecastItem} key={`forecast_${index}`}>
               <div className={css.ForecastItemIcon}>
                 <span>Day {new Date(item.dt * 1000).getDate()}</span>
                 <img src={getSrcIcon(item.weather[0].icon)} />
@@ -21,10 +21,10 @@ const ForecastList = ({ list, currentCity }) => {
               <span>{item.weather[0].description}</span>
               <span>humidity: {item.humidity} %</span>
               <span>pressure: {item.pressure} hpa</span>
-            </div>
+            </article>
           );
         })}
-      </div>
+      </section>
     )
   );
 };

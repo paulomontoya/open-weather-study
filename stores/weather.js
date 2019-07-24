@@ -9,7 +9,12 @@ export const WeatherStore = observable({
   list: [],
 
   getCities: () => {
-    if (WeatherStore.searchTerms) {
+    if (!WeatherStore.searchTerms) {
+      WeatherStore.isLoading = false;
+      WeatherStore.error = false;
+      WeatherStore.currentCity = null;
+      WeatherStore.list = [];
+    } else {
       WeatherStore.isLoading = true;
 
       const url = "https://api.openweathermap.org/data/2.5/forecast/daily";
