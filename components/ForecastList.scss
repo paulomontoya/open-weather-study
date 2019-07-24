@@ -1,0 +1,45 @@
+.ForecastList {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0;
+  align-items: center;
+
+  > h2 {
+    font-size: 15px;
+    font-weight: normal;
+  }
+}
+
+.ForecastItem {
+  display: block;
+  margin: 0px 15px 15px 15px;
+  width: 200px;
+  flex-shrink: 0;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  padding: 20px;
+  text-align: center;
+
+  > span {
+    display: block;
+  }
+}
+
+.ForecastItemIcon {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 50px 1fr;
+
+  img {
+    width: 50px;
+  }
+  span {
+  }
+}
+
+.ForecastTemperature {
+  span {
+    display: block;
+    margin: 2px 0px;
+  }
+}

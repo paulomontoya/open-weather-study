@@ -4,14 +4,11 @@
   display: block;
 }
 
-.SearchBox {
+.ResultsError {
   display: block;
-}
-
-.WeatherBoxWrapper {
-  display: block;
-}
-
-.WeatherBox {
-  display: block;
+  text-align: center;
+  font-size: 13px;
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 0 15px;
 }
