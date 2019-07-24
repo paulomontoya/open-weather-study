@@ -3,12 +3,12 @@ import css from "./SearchBox.scss";
 import * as Yup from "yup";
 import { Formik } from "formik";
 
-const SearchBox = props => (
+const SearchBox = ({ submitCallback, defaultValue }) => (
   <div className={css.SearchBox}>
     <Formik
-      initialValues={{ place: "" }}
+      initialValues={{ place: defaultValue || "" }}
       onSubmit={(values, { setSubmitting }) => {
-        props.submitCallback(values.place);
+        submitCallback(values.place);
         setSubmitting(false);
       }}
       validationSchema={Yup.object().shape({
@@ -25,14 +25,14 @@ const SearchBox = props => (
         } = formikProps;
         return (
           <form onSubmit={handleSubmit}>
-            <label htmlFor="place">Type your City</label>
+            <label htmlFor="place">Type your City and press enter</label>
             <input
               id="place"
               type="text"
               value={values.place}
               onChange={handleChange}
               onBlur={handleBlur}
-              placeholder="eg. Sao Paulo"
+              placeholder="eg. Sao Paulo, BR"
               autoFocus={true}
               className={errors.place && css.SearchBoxInputError}
             />
