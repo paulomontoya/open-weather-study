@@ -18,7 +18,4 @@ The commands are self explanatory:
 yarn dev
 yarn build
 yarn start
-yarn test
-yarn test:watch
-yarn test:coverage
 ```
