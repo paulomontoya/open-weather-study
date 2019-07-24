@@ -1,5 +1,6 @@
 import { observable } from "mobx";
 import axios from "axios";
+import { get } from "lodash";
 
 export const WeatherStore = observable({
   isLoading: false,
@@ -35,7 +36,7 @@ export const WeatherStore = observable({
         })
         .catch(error => {
           WeatherStore.isLoading = false;
-          WeatherStore.error = error.response.status;
+          WeatherStore.error = get(error, "response.status", error.message);
           WeatherStore.currentCity = null;
           WeatherStore.list = [];
         });
