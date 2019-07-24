@@ -1,5 +1,5 @@
-import { UserStore } from "./user";
+import { WeatherStore } from "./weather";
 
 import { createContext } from "react";
 
-export const UserStoreContext = createContext(UserStore);
+export const WeatherStoreContext = createContext(WeatherStore);
